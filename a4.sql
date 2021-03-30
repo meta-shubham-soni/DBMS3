@@ -2,7 +2,8 @@ use eCommerce;
 
 Create view order1 as
     Select o.orderID , o.userID , o.orderTotal , o.orderDate ,ord.shipped ,ord.productID 
-    from orderdetails ord left join orders o on ord.orderID = o.orderID;
+    from orderdetails ord left join orders o on ord.orderID = o.orderID
+    where o.orderDate > NOW() - INTERVAL 60 DAY;
 
 
 create view order2 as
